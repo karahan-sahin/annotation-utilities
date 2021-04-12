@@ -21,9 +21,9 @@ REGEX_ISE = r'\d+\tise\ti\t(\w+)\t(\w+)\t(.+?)\t.+?\t(.+?)\t'
 REGEX_MI = r'\d+\tm[ıiuü]\w*\tm[ıiuü]\t(\w+)\t(\w+)\t(.+?)\t.+?\t(.+?)\t'
 
 Tk().withdraw() 
-f_name = askopenfilename() 
+file_name = askopenfilename() 
 
-f_in = open(f"{f_name}").read()
+data = open(f"{file_name}").read()
 
 def pot_replace(term):
 
@@ -231,8 +231,6 @@ def mi_replace(term):
 
 while (True):
 
-    data = f_in
-
     pot_fixed = re.sub(REGEX_POT,pot_replace,data)
     answer = input('Are you sure you want to change it? Y/n: ')
     if (answer == "Y"):
@@ -248,7 +246,6 @@ while (True):
     elif (answer == "n"):
         pass
 
-    
     prosp_fixed = re.sub(REGEX_PROSP,prosp_replace,data)
     answer = input('Are you sure you want to change it? Y/n')
     if (answer == "Y"):
@@ -343,7 +340,7 @@ while (True):
 
 final_answer = input("Are you sure about these changes?Y/n")
 if final_answer == "Y":
-    output = open(f"{f_name}","w")  
+    output = open(f"{file_name}","w")  
     output.write(data)
     output.close()
 else:
