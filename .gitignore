@@ -1,3 +1,4 @@
-boun_ud_test_v1.conllu
-boun_ud_train_v1.conllu
-boat_venv/
+# Virtual Environment
+boat_venv/**
+# Dummy Documents
+*.conllu
